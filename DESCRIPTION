@@ -1,14 +1,18 @@
 Package: dygraphs
 Type: Package
 Title: Interface to Dygraphs Interactive Time Series Charting Library
-Version: 0.4.2
-Date: 2015-04-04
+Version: 0.4.3
+Date: 2015-04-07
 Authors@R: c(
     person("Dan", "Vanderkam", role = c("aut", "cph"),
        comment = "dygraphs library in htmlwidgets/lib, http://dygraphs.com/"),
     person("JJ", "Allaire", role = c("aut", "cre"),
        comment = "R interface", email = "jj@rstudio.com"),
-    person(family = "RStudio", role = "cph")
+    person(family = "RStudio", role = "cph"),
+    person(family = "jQuery Foundation", role = "cph",
+           comment = "jQuery library"),
+    person(family = "jQuery contributors", role = c("ctb", "cph"),
+           comment = "jQuery library; authors listed in inst/htmlwidgets/lib/jquery/AUTHORS.txt")
     )
 Maintainer: JJ Allaire <jj@rstudio.com>
 Description: An R interface to the dygraphs JavaScript charting library
@@ -22,11 +26,14 @@ Imports: magrittr, htmlwidgets (>= 0.3.2), zoo (>= 1.7-10), xts (>=
         0.9-7)
 Suggests: testthat
 Enhances: rmarkdown (>= 0.3.3), shiny (>= 0.10.2.1)
-Packaged: 2015-03-04 10:23:56 UTC; jjallaire
+Packaged: 2015-04-07 12:07:57 UTC; jjallaire
 Author: Dan Vanderkam [aut, cph] (dygraphs library in htmlwidgets/lib,
     http://dygraphs.com/),
   JJ Allaire [aut, cre] (R interface),
-  RStudio [cph]
+  RStudio [cph],
+  jQuery Foundation [cph] (jQuery library),
+  jQuery contributors [ctb, cph] (jQuery library; authors listed in
+    inst/htmlwidgets/lib/jquery/AUTHORS.txt)
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2015-03-04 11:45:10
+Date/Publication: 2015-04-07 16:02:34
