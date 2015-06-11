@@ -25,7 +25,7 @@ mergeLists <- function (base_list, overlay_list, recursive = TRUE) {
 asISO8601Time <- function(x) {
   if (!inherits(x, "POSIXct"))
     x <- as.POSIXct(x, tz = "GMT")
-  format(x, format="%Y-%m-%dT%H:%M:%SZ", tz='GMT')
+  format(x, format="%04Y-%m-%dT%H:%M:%SZ", tz='GMT')
 }
 
 resolveStrokePattern <- function(strokePattern) {
@@ -36,6 +36,8 @@ resolveStrokePattern <- function(strokePattern) {
       strokePattern <- c(7, 3)
     else if (strokePattern == "dotdash")
       strokePattern <- c(7, 2, 2, 2)
+    else if (strokePattern == "solid")
+      strokePattern <- c(1, 0)
     else
       stop("Invalid stroke pattern: valid values are dotted, ",
            "dashed, and dotdash")
