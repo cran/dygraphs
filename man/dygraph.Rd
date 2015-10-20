@@ -4,8 +4,8 @@
 \alias{dygraph}
 \title{dygraph interactive plot for time series data}
 \usage{
-dygraph(data, main = NULL, xlab = NULL, ylab = NULL, group = NULL,
-  width = NULL, height = NULL)
+dygraph(data, main = NULL, xlab = NULL, ylab = NULL, periodicity = NULL,
+  group = NULL, width = NULL, height = NULL)
 }
 \arguments{
 \item{data}{Time series data (must be an \link[xts]{xts} object or an object
@@ -16,6 +16,9 @@ which is convertible to \code{xts}).}
 \item{xlab}{X axis label}
 
 \item{ylab}{Y axis label}
+
+\item{periodicity}{Periodicity of data (automatically detected via
+\link[xts:periodicity]{xts::periodicity} if not specified).}
 
 \item{group}{Group to associate this plot with. The x-axis zoom level of
 plots within a group is automatically synchronized.}
