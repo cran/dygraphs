@@ -21,6 +21,26 @@ if (!Array.prototype.indexOf) {
 }
 
 
+// jquery plugin for element size changed detection
+(function ($) {
+$.fn.sizeChanged = function (handler) {
+  var previous = {
+    width: this.width(),
+    height: this.height()
+  };
+  var thiz = this;
+  setInterval(function () {
+    if (previous.width !== thiz.width() || previous.height !== thiz.height()) {
+      handler();
+      previous.width = thiz.width();
+      previous.height = thiz.height();
+    }
+  }, 100);
+
+  return thiz;
+};
+}(jQuery));
+
 HTMLWidgets.widget({
 
   name: "dygraphs",
@@ -124,7 +144,7 @@ HTMLWidgets.widget({
       });
       
       // redraw on R Markdown {.tabset} tab visibility changed
-      var tab = $(el).closest('div.tabbed-pane');
+      var tab = $(el).closest('div.tab-pane');
       if (tab !== null) {
         var tabID = tab.attr('id');
         var tabAnchor = $('a[data-toggle="tab"][href="#' + tabID + '"]');
@@ -135,6 +155,13 @@ HTMLWidgets.widget({
           });
         }
       }
+      
+      // proactively detect element size changed and redraw for that as well
+      // (required for some flexbox layouts)
+      $(el).sizeChanged(function() {
+        if (instance.dygraph)
+          instance.dygraph.resize();  
+      });
 
       // add default font for viewer mode
       if (this.queryVar("viewer_pane") === "1")

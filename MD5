@@ -1,4 +1,4 @@
-d9c1acd5e1427cbd24e529e125ce933d *DESCRIPTION
+4b689ac77c72262f7ca7648b30f1db26 *DESCRIPTION
 478275df13aabf277268819985dd26c6 *LICENSE
 9efbcd3aaeb033e920d55fd412a1332c *NAMESPACE
 ece5684b2bbe56d65da917bfa3d2bf4f *R/annotation.R
@@ -18,15 +18,15 @@ b291285f67b1ec6629ec3c6f5d00b9d2 *R/dygraph.R
 f824c8fb0d8ac580afeaf0648d82d980 *R/shading.R
 c4b6c9c94420182f74f1cbb12f29cb74 *R/utils.R
 b550b2c6aa8b6547482dc99e87039d94 *inst/COPYING
-82fd27769944fa059064348abbeef0bd *inst/NEWS
+ea72a31432b760507e40877d6c94f34f *inst/NEWS
 dc9503ccfce1fb5642e9cf6232482b2f *inst/NOTICE
 6148fca8d6b995eb1b12a3af3ceea36b *inst/examples/examples.R
 ce6d8de02ff1a720bc5e1fd861e635c9 *inst/examples/examples.Rmd
-260d642ea458d46265e37008b291462a *inst/examples/examples.html
+a6126682fda5e0ffe66fb4628a7b9723 *inst/examples/examples.html
 bcda1529a26c0bb293b4c181972789ac *inst/examples/shiny/DESCRIPTION
 4bd20737b0049c623a68b31d8542631a *inst/examples/shiny/server.R
 16f46c99f60cb8aac144ed6a1e2fe8fd *inst/examples/shiny/ui.R
-a88d6d1a68bb47e797ecce2f6af47ae4 *inst/htmlwidgets/dygraphs.js
+84b41c88874b97fdb689275150d313b1 *inst/htmlwidgets/dygraphs.js
 c199a8079c014a76d30e4baedd2ed021 *inst/htmlwidgets/dygraphs.yaml
 e1a5e2346cad6d3236921f9581922b3f *inst/htmlwidgets/lib/dygraphs/dygraph-combined-dev.js
 a6fc6e899b07c124d0a0c9b1cb3e9db4 *inst/htmlwidgets/lib/dygraphs/dygraph-combined.js
