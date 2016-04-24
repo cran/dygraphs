@@ -20,27 +20,6 @@ if (!Array.prototype.indexOf) {
   };
 }
 
-
-// jquery plugin for element size changed detection
-(function ($) {
-$.fn.sizeChanged = function (handler) {
-  var previous = {
-    width: this.width(),
-    height: this.height()
-  };
-  var thiz = this;
-  setInterval(function () {
-    if (previous.width !== thiz.width() || previous.height !== thiz.height()) {
-      handler();
-      previous.width = thiz.width();
-      previous.height = thiz.height();
-    }
-  }, 100);
-
-  return thiz;
-};
-}(jQuery));
-
 HTMLWidgets.widget({
 
   name: "dygraphs",
@@ -124,6 +103,18 @@ HTMLWidgets.widget({
     this.addShadingCallback(x);
     this.addEventCallback(x);
     this.addZoomCallback(x, instance);
+    
+    // disable y-axis touch events on mobile phones
+    if (attrs.mobileDisableYTouch !== false && this.isMobilePhone()) {
+      // create default interaction model if necessary
+      if (!attrs.interactionModel)
+        attrs.interactionModel = Dygraph.Interaction.defaultModel;
+      // disable y touch direction
+      attrs.interactionModel.touchstart = function(event, dygraph, context) {
+        Dygraph.defaultInteractionModel.touchstart(event, dygraph, context);
+        context.touchDirections = { x: true, y: false };
+      };
+    }
 
     // if there is no existing instance perform one-time initialization
     if (!instance.dygraph) {
@@ -155,14 +146,6 @@ HTMLWidgets.widget({
           });
         }
       }
-      
-      // proactively detect element size changed and redraw for that as well
-      // (required for some flexbox layouts)
-      $(el).sizeChanged(function() {
-        if (instance.dygraph)
-          instance.dygraph.resize();  
-      });
-
       // add default font for viewer mode
       if (this.queryVar("viewer_pane") === "1")
         document.body.style.fontFamily = "Arial, sans-serif";
@@ -697,6 +680,17 @@ HTMLWidgets.widget({
       date = new Date(localAsUTC);
     }
     return date;
+  },
+  
+  // safely detect rendering on a mobile phone
+  isMobilePhone: function() {
+    try
+    {
+      return ! window.matchMedia("only screen and (min-width: 768px)").matches;
+    }
+    catch(e) {
+      return false;
+    }
   }
   
 });
