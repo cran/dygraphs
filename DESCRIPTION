@@ -1,7 +1,7 @@
 Package: dygraphs
 Type: Package
 Title: Interface to 'Dygraphs' Interactive Time Series Charting Library
-Version: 0.9
+Version: 1.1.1.0
 Date: 2016-04-24
 Authors@R: c(
     person("Dan", "Vanderkam", role = c("aut", "cph"),
@@ -26,13 +26,13 @@ Description: An R interface to the 'dygraphs' JavaScript charting library
     series/point highlighting.
 License: MIT + file LICENSE
 Depends: R (>= 3.0)
-Imports: magrittr, htmlwidgets (>= 0.3.2), zoo (>= 1.7-10), xts (>=
-        0.9-7)
+Imports: magrittr, htmlwidgets (>= 0.6), htmltools (>= 0.3.5), zoo (>=
+        1.7-10), xts (>= 0.9-7)
 Suggests: testthat
 Enhances: rmarkdown (>= 0.3.3), shiny (>= 0.10.2.1)
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-04-24 20:01:47 UTC; jjallaire
+Packaged: 2016-08-01 15:20:43 UTC; jjallaire
 Author: Dan Vanderkam [aut, cph] (dygraphs library in htmlwidgets/lib,
     http://dygraphs.com/),
   JJ Allaire [aut, cre] (R interface),
@@ -45,4 +45,4 @@ Author: Dan Vanderkam [aut, cph] (dygraphs library in htmlwidgets/lib,
   jQuery contributors [ctb, cph] (jQuery library; authors listed in
     inst/htmlwidgets/lib/jquery/AUTHORS.txt)
 Repository: CRAN
-Date/Publication: 2016-04-24 23:22:32
+Date/Publication: 2016-08-01 19:13:05
