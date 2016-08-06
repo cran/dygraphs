@@ -197,15 +197,15 @@ HTMLWidgets.widget({
             dygraph = null;
         }
         
-        // add shiny input for date window
-        if (HTMLWidgets.shinyMode)
-          this.addDateWindowShinyInput(el.id, x);
-        
         // create the dygraph and add it to it's group (if any)
         dygraph = new Dygraph(el, attrs.file, attrs);
         dygraph.userDateWindow = attrs.dateWindow;
         if (x.group != null)
           groups[x.group].push(dygraph);
+        
+        // add shiny input for date window
+        if (HTMLWidgets.shinyMode)
+          this.addDateWindowShinyInput(el.id, x);
         
         // set annotations
         if (x.annotations != null) {
@@ -608,6 +608,7 @@ HTMLWidgets.widget({
                 else
                   tx = area.x + 10;
               }
+              canvas.fillStyle = event.color;
               canvas.fillText(event.label, tx, ty);
               canvas.restore();
             }
