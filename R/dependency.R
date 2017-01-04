@@ -35,8 +35,8 @@ dyDependency <- function(dygraph, dependency) {
 #' documentation.
 #
 #' Once you've created a dygraphs plugins you can use the dyPlugin function to
-#' create an R wrapper for it. See the
-#' \href{https://github.com/rstudio/dygraphs/tree/master/inst/examples/plugins/plugins.R}{example plugins}
+#' create an R wrapper for it. See
+#' \href{https://rstudio.github.io/dygraphs/gallery-plugins.html}{https://rstudio.github.io/dygraphs/gallery-plugins.html}
 #' for details on how to do this.
 #'
 #' @export
@@ -83,6 +83,33 @@ dyPlotter <- function(dygraph, name, path, version = "1.0") {
   dygraph <- dyDependency(dygraph, plotterDependency)
 
   dygraph$x$plotter <- name
+
+  # return dygraph
+  dygraph
+}
+
+#' Include a dygraph data handler
+#'
+#' @param dygraph Dygraph to add data handler to
+#' @param name Name of data handler
+#' @param path Path to data handler JavaScript file
+#' @param version Data handler version (e.g. version of package which provides the
+#' data handler)
+#'
+#' @importFrom htmltools htmlDependency
+#' @return A dygraph with the specified data handler enabled.
+#'
+#' @export
+dyDataHandler <- function(dygraph, name, path, version = "1.0") {
+  path <- normalizePath(path)
+  dataHandlerDependency <- htmlDependency(paste0("Dygraph.DataHandlers.", name),
+                                          version,
+                                          src = dirname(path),
+                                          script = basename(path),
+                                          all_files = FALSE)
+  dygraph <- dyDependency(dygraph, dataHandlerDependency)
+
+  dygraph$x$dataHandler <- name
 
   # return dygraph
   dygraph
