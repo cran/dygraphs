@@ -24,6 +24,10 @@
 #'   is always drawn when a point is "isolated", i.e. there is a missing point 
 #'   on either side of it. This also controls the size of those dots. This 
 #'   option can also be set on a per-series basis.
+#' @param pointShape The shape of the dot to draw. Can be one of the following:
+#'   "dot" (default), "triangle", "square", "diamond", "pentagon", "hexagon",
+#'   "circle", "star", "plus" or "ex". This option can also be set on a per-series
+#'   basis.
 #' @param drawGapEdgePoints Draw points at the edges of gaps in the data. This 
 #'   improves visibility of small data segments or other data irregularities.
 #' @param connectSeparatedPoints Usually, when dygraphs encounters a missing 
@@ -147,6 +151,7 @@
 #' @param retainDateWindow Whether to retain the user's current date window 
 #'   (zoom level) when updating an existing dygraph with new data and/or 
 #'   options.
+#' @param disableZoom Set this option to disable click and drag zooming.
 #'   
 #' @return dygraph with additional options
 #'   
@@ -162,6 +167,16 @@ dyOptions <- function(dygraph,
                       stemPlot = FALSE,
                       drawPoints = FALSE,
                       pointSize = 1.0,
+                      pointShape = c("dot",
+                                     "triangle",
+                                     "square",
+                                     "diamond",
+                                     "pentagon",
+                                     "hexagon",
+                                     "circle",
+                                     "star",
+                                     "plus",
+                                     "ex"),
                       drawGapEdgePoints = FALSE,
                       connectSeparatedPoints = FALSE,
                       strokeWidth = 1.0,
@@ -199,7 +214,8 @@ dyOptions <- function(dygraph,
                       mobileDisableYTouch = TRUE,
                       timingName = NULL,
                       useDataTimezone = FALSE,
-                      retainDateWindow = FALSE) {
+                      retainDateWindow = FALSE,
+                      disableZoom = FALSE) {
   
   # validate that labelsUTC and useDataTimezone aren't specified together
   if (!missing(labelsUTC) && !missing(useDataTimezone))
@@ -254,6 +270,7 @@ dyOptions <- function(dygraph,
   options$timingName <- timingName
   if (!missing(retainDateWindow))
     options$retainDateWindow <- retainDateWindow
+  options$disableZoom <- disableZoom
   
   # merge options into attrs
   dygraph$x$attrs <- mergeLists(dygraph$x$attrs, options)
@@ -270,6 +287,12 @@ dyOptions <- function(dygraph,
   }
   dygraph$x$tzone <- data.timezone
   
+  # set point shape
+  pointShape <- match.arg(pointShape)
+  if (pointShape != "dot") {
+    dygraph$x$pointShape <- pointShape
+  }
+
   # return modified dygraph
   dygraph
 }
