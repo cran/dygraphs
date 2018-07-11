@@ -1,4 +1,4 @@
-c2a772155a07cd9819c9b8116db2fc38 *DESCRIPTION
+faababe893251e9db4c51c79684d1db0 *DESCRIPTION
 478275df13aabf277268819985dd26c6 *LICENSE
 e09bb85e8ffdf991a4a77ef13ac20035 *NAMESPACE
 cf88962f7299f69e9249708cfd41e77b *R/annotation.R
@@ -24,14 +24,14 @@ b8c07f56a78b434148c6065628a92095 *R/roller.R
 34df143dceebeed3ed061c9644659860 *R/shading.R
 458657cdea67386ff88252100d5a11c5 *R/utils.R
 b550b2c6aa8b6547482dc99e87039d94 *inst/COPYING
-2fd0e2a07ade42682d8062b57a6642ad *inst/NEWS
+6f8c020781f3ad24e958acf23e4059cc *inst/NEWS
 dc9503ccfce1fb5642e9cf6232482b2f *inst/NOTICE
 6148fca8d6b995eb1b12a3af3ceea36b *inst/examples/examples.R
 ce6d8de02ff1a720bc5e1fd861e635c9 *inst/examples/examples.Rmd
 bcda1529a26c0bb293b4c181972789ac *inst/examples/shiny/DESCRIPTION
 469d2e0b7f068fc95ca1259c9c9b87e6 *inst/examples/shiny/server.R
 d2a2683697266876537e92a4d6cd787b *inst/examples/shiny/ui.R
-66e1531fd2fc98aac6d99db0816b0140 *inst/htmlwidgets/dygraphs.js
+dc6ac85951a573be75f21facd4c50851 *inst/htmlwidgets/dygraphs.js
 2e62b15fe1007c51031e9546e4a8adf3 *inst/htmlwidgets/dygraphs.yaml
 e1a5e2346cad6d3236921f9581922b3f *inst/htmlwidgets/lib/dygraphs/dygraph-combined-dev.js
 a6fc6e899b07c124d0a0c9b1cb3e9db4 *inst/htmlwidgets/lib/dygraphs/dygraph-combined.js
